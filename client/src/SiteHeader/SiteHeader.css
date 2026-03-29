@@ -1,0 +1,16 @@
+.header {
+  background-color: #ff3b3b;
+  height: 100px;
+  display: flex;
+  align-items: center;         
+  justify-content: space-between; 
+  padding: 0.5rem 0.5rem;
+
+  border-bottom: 2px solid #ff3b3b;       /* neon line */
+  box-shadow: 0 0 10px #ff3b3b; 
+
+}
+
+.logo {
+  height: 100%;
+}
