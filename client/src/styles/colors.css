@@ -1,0 +1,20 @@
+:root {
+  /* Red */
+  --red: #ff3b3b;
+  --red-dark: #d92f2f;
+  --red-light: #ff6b6b;
+
+  /* Green */
+  --green: #22C55E;
+  --green-dark: #15803D;
+
+  /* White */
+
+
+  /* Blue */
+  --color-text: #1f2937;
+  --color-text-light: #6b7280;
+
+  /* Optional effects */
+  --color-glow-primary: #ff3b3b;
+}

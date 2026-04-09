@@ -1,13 +1,22 @@
 .header {
-  background-color: #ff3b3b;
+  background-color: var(--red);
   height: 70px;
   display: flex;
   align-items: center;
   position: relative; /* needed for nav centering */
   padding: 0.2rem 0.5rem;
 
-  border-bottom: 2px solid #ff3b3b;
-  box-shadow: 0 0 10px #ff3b3b;
+  border-bottom: 2px solid var(--red);
+  box-shadow: 0 0 10px var(--red);
+}
+
+.logo-button{
+  height: 100%;
+  border: none;
+  display: flex;
+  background-color: transparent;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo {
@@ -29,15 +38,13 @@
 .nav-bar-button{
   background: transparent;
   border: none;
+  color: #FAF9F6;
 
   font-size: 1rem;
 }
 
 .nav-bar-button:hover{
-  background: transparent;
-  border: none;
   text-decoration: underline;
-  font-size: 1rem;
 }
 
 .signup-login-frame {
@@ -49,14 +56,13 @@
 
 .signup-login-button {
   height: 50%;
-  background-color: #22C55E;
+  background-color: var(--green);
   font-size: 1rem;
-  margin: 5px;
+  margin: 5px;/*TODO: This probably shouldnt be a fixed value*/
+  
+  border-style:hidden;
 }
 
 .signup-login-button:hover {
-  height: 50%;
-  background-color: #86EFAC;
-  font-size: 1rem;
-  margin: 5px;
+  background-color: var(--green-dark);
 }
