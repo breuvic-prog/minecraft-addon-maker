@@ -1,13 +1,10 @@
 import { useEffect, useState } from 'react';
-import SiteHeader from "./SiteHeader/SiteHeader"
+import MyAddons from "./Pages/MyAddons/MyAddons"
 
 function App() {
   return (
     <>
-    <SiteHeader />
-      <main>
-        <h1>Welcome to my app</h1>
-      </main>
+      <MyAddons/>
     </>
   );
 }
