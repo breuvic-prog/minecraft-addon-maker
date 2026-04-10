@@ -1,0 +1,68 @@
+.header {
+  background-color: var(--red);
+  height: 70px;
+  display: flex;
+  align-items: center;
+  position: relative; /* needed for nav centering */
+  padding: 0.2rem 0.5rem;
+
+  border-bottom: 2px solid var(--red);
+  box-shadow: 0 0 10px var(--red);
+}
+
+.logo-button{
+  height: 100%;
+  border: none;
+  display: flex;
+  background-color: transparent;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  height: 100%;
+}
+
+.nav-bar {
+  display: flex;
+
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 50%; 
+
+  justify-content: space-between;
+}
+
+.nav-bar-button{
+  background: transparent;
+  border: none;
+  color: var(--white);
+
+  font-size: 1rem;
+}
+
+.nav-bar-button:hover{
+  text-decoration: underline;
+}
+
+.signup-login-frame {
+  margin-left: auto; 
+  height: 100%;
+  justify-content: center;
+  align-content: center;
+}
+
+.signup-login-button {
+  height: 50%;
+  background-color: var(--green);
+  font-size: 1rem;
+  margin: 5px;/*TODO: This probably shouldnt be a fixed value*/
+  
+  border-style:hidden;
+}
+
+.signup-login-button:hover {
+  background-color: var(--green-dark);
+}

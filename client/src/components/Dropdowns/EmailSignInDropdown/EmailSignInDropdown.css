@@ -1,0 +1,19 @@
+.dropdown-menu{
+    /*Display Stuff*/
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    background-color: var(--gray);
+    width: 20%;
+    align-items: center;
+    padding: 2%;
+}
+
+.close-button{
+    background-color: transparent;
+    border-style: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+}

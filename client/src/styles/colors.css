@@ -9,12 +9,13 @@
   --green-dark: #15803D;
 
   /* White */
+  --white: #FAF9F6;
 
+  /*Gray*/
+  --gray:#D3D3D3;
 
   /* Blue */
-  --color-text: #1f2937;
-  --color-text-light: #6b7280;
 
-  /* Optional effects */
-  --color-glow-primary: #ff3b3b;
+
+
 }

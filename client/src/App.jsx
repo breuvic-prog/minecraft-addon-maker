@@ -1,12 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useState } from "react";
 import "./styles/colors.css";
-import MyAddons from "./Pages/MyAddons/MyAddons"
+import "./styles.css"
+
+
+
+import MyAddons from "./components/Pages/MyAddons/MyAddons";
+import EmailSignInDropdown from "./components/Dropdowns/EmailSignInDropdown/EmailSignInDropdown";
 
 function App() {
+  const [user, setUser] = useState(null);
+
   return (
-    <>
-      <MyAddons/>
-    </>
+    <EmailSignInDropdown user={user} setUser={setUser}/>
   );
 }
 
