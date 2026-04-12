@@ -1,19 +1,62 @@
-.dropdown-menu{
-    /*Display Stuff*/
+.dropdown-menu {
     display: flex;
     flex-direction: column;
     position: relative;
-
     background-color: var(--gray);
-    width: 20%;
-    align-items: center;
-    padding: 2%;
+    width: min(420px, 90vw);
+    align-items: stretch;
+    gap: 0.5rem;
+    padding: 2rem;
+    border-radius: 16px;
+    margin: 3rem auto;
+    box-sizing: border-box;
 }
 
-.close-button{
+.close-button {
     background-color: transparent;
     border-style: none;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 0.75rem;
+    right: 0.75rem;
+    font-size: 1rem;
+}
+
+.dropdown-menu input {
+    padding: 0.75rem;
+    border: 1px solid #b6b6b6;
+    border-radius: 8px;
+}
+
+.submit-button {
+    margin-top: 0.5rem;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+}
+
+.signup-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.text-button {
+    background: transparent;
+    border: none;
+    text-decoration: underline;
+    padding: 0;
+}
+
+.status-message {
+    margin-top: 0.25rem;
+    font-size: 0.95rem;
+}
+
+.error-message {
+    color: #b00020;
+}
+
+.success-message {
+    color: #0a7a33;
 }

@@ -1,20 +1,36 @@
+import { useState } from "react";
 import "./MyAddons.css";
 import SiteHeader from "../../SiteHeader/SiteHeader";
+import EmailSignInDropdown from "../../Dropdowns/EmailSignInDropdown/EmailSignInDropdown";
 
 const MyAddons = ({ user, setUser }) => {
+  const [showLogin, setShowLogin] = useState(false);
+
   return (
     <>
-      <SiteHeader user={user} setUser={setUser} />
+      <SiteHeader
+        user={user}
+        setUser={setUser}
+        onOpenLogin={() => setShowLogin(true)}
+      />
 
       <div>
-        {user ? (
+        {user ? ({/*When the user is signed in*/}
           <>
             <h1>My Addons</h1>
-            <p>Welcome {user.name || user.email}</p>
+            <p>Welcome {user.username || user.email}</p>
           </>
-        ) : (
+        ) : ({/*When the user is NOT signed in*/}
           <>
             <h1>Login to view addons</h1>
+
+            {showLogin && (
+              <EmailSignInDropdown
+                user={user}
+                setUser={setUser}
+                onClose={() => setShowLogin(false)}
+              />
+            )}
           </>
         )}
       </div>

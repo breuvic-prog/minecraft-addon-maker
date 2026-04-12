@@ -1,22 +1,6 @@
 import "./SiteHeader.css";
-import axios from "axios";
 
-const SiteHeader = ({ user, setUser }) => {
-  // Handles the login process
-  const handleLogin = async () => {
-    try {
-      const response = await axios.post("http://localhost:5000/login", {
-        email: "test@example.com",
-        password: "password123",
-      });
-
-      console.log(response.data);
-      setUser(response.data.user);
-    } catch (error) {
-      console.error(error.response?.data || error.message);
-    }
-  };
-
+const SiteHeader = ({ user, setUser, onOpenLogin }) => {
   const handleLogout = () => {
     setUser(null);
   };
@@ -36,22 +20,13 @@ const SiteHeader = ({ user, setUser }) => {
 
       <div className="signup-login-frame">
         {user ? (
-          <button
-            className="button signup-login-button"
-            onClick={handleLogout}
-          >
+          <button className="button signup-login-button" onClick={handleLogout}>
             Logout
           </button>
         ) : (
-          <>
-            <button
-              className="button signup-login-button"
-              onClick={handleLogin}
-            >
-              Login
-            </button>
-            <button className="button signup-login-button">Sign Up</button>
-          </>
+          <button className="button signup-login-button" onClick={onOpenLogin}>
+            Sign In
+          </button>
         )}
       </div>
     </header>
