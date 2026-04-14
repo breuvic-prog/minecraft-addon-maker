@@ -1,11 +1,8 @@
-import { useState } from "react";
 import "./MyAddons.css";
 import SiteHeader from "../../SiteHeader/SiteHeader";
 import EmailSignInDropdown from "../../Dropdowns/EmailSignInDropdown/EmailSignInDropdown";
 
-const MyAddons = ({ user, setUser }) => {
-  const [showLogin, setShowLogin] = useState(false);
-
+const MyAddons = ({ user, setUser, showLogin, setShowLogin }) => {
   return (
     <>
       <SiteHeader
@@ -15,13 +12,15 @@ const MyAddons = ({ user, setUser }) => {
       />
 
       <div>
-        {user ? ({/*When the user is signed in*/}
+        {user ? (
           <>
+            {/* When the user is signed in */}
             <h1>My Addons</h1>
             <p>Welcome {user.username || user.email}</p>
           </>
-        ) : ({/*When the user is NOT signed in*/}
+        ) : (
           <>
+            {/* When the user is NOT signed in */}
             <h1>Login to view addons</h1>
 
             {showLogin && (
