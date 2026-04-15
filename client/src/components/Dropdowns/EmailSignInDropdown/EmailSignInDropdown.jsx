@@ -4,7 +4,7 @@ import EmailSignUpDropdown from "../EmailSignUpDropdown/EmailSignUpDropdown";
 
 const API_BASE_URL = "http://localhost:5000";
 
-const EmailSignInDropdown = ({ user, setUser }) => {
+const EmailSignInDropdown = ({ user, setUser, onClose }) => {
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -40,6 +40,7 @@ const EmailSignInDropdown = ({ user, setUser }) => {
       setMessage("Signed in successfully.");
       setIdentifier("");
       setPassword("");
+      onClose();
     } catch (submitError) {
       setError(submitError.message);
     } finally {
@@ -54,7 +55,13 @@ const EmailSignInDropdown = ({ user, setUser }) => {
         <p className="status-message success-message">
           Signed in as {user.username || user.email}
         </p>
-        <button className="submit-button" onClick={() => setUser(null)}>
+        <button
+          className="submit-button"
+          onClick={() => {
+            setUser(null);
+            onClose();
+          }}
+        >
           Log Out
         </button>
       </div>
@@ -62,14 +69,25 @@ const EmailSignInDropdown = ({ user, setUser }) => {
   }
 
   if (showSignUp) {
-    return <EmailSignUpDropdown setUser={setUser} onBack={() => setShowSignUp(false)} />;
+    return (
+      <EmailSignUpDropdown
+        setUser={setUser}
+        onBack={() => setShowSignUp(false)}
+      />
+    );
   }
 
   return (
     <form className="dropdown-menu" onSubmit={handleSubmit}>
-      <button type="button" className="close-button" aria-label="Close sign in form">
+      <button
+        type="button"
+        className="close-button"
+        aria-label="Close sign in form"
+        onClick={onClose}
+      >
         X
       </button>
+
       <h2>Sign In</h2>
 
       <label htmlFor="login-identifier">Email/Username</label>
@@ -103,7 +121,11 @@ const EmailSignInDropdown = ({ user, setUser }) => {
 
       <div className="signup-row">
         <p>New?</p>
-        <button type="button" className="text-button" onClick={() => setShowSignUp(true)}>
+        <button
+          type="button"
+          className="text-button"
+          onClick={() => setShowSignUp(true)}
+        >
           Sign Up
         </button>
       </div>

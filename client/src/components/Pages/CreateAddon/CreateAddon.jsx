@@ -1,17 +1,18 @@
-import "./MyAddons.css";
+import "./CreateAddon.css";
 import SiteHeader from "../../SiteHeader/SiteHeader";
 
-const MyAddons = ({ user, setUser, showLogin, setShowLogin }) => {
+const CreateAddon = ({ user, setUser, showLogin, setShowLogin }) => {
+
   return (
     <>
-      <SiteHeader
-        user={user}
-        setUser={setUser}
-        showLogin={showLogin}
-        setShowLogin={setShowLogin}
-      />
+        <SiteHeader 
+          user={user} 
+          setUser={setUser} 
+          showLogin={showLogin} 
+          setShowLogin={setShowLogin}
+        />
 
-      <div>
+        <div>
         {user ? (
           <>
             {/* When the user is signed in */}
@@ -21,7 +22,7 @@ const MyAddons = ({ user, setUser, showLogin, setShowLogin }) => {
         ) : (
           <>
             {/* When the user is NOT signed in */}
-            <h1>Login to view addons</h1>
+            <h1>Login to create addon</h1>
           </>
         )}
       </div>
@@ -29,4 +30,4 @@ const MyAddons = ({ user, setUser, showLogin, setShowLogin }) => {
   );
 };
 
-export default MyAddons;
+export default CreateAddon;
