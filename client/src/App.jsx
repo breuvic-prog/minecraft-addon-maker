@@ -21,6 +21,17 @@ function App() {
           />
         }
       />
+      <Route
+        path="/myAddons"
+        element={
+          <MyAddons
+            user={user}
+            setUser={setUser}
+            showLogin={showLogin}
+            setShowLogin={setShowLogin}
+          />
+        }
+      />
 
       <Route
         path="/createAddon"

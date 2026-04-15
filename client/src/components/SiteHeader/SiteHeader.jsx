@@ -9,9 +9,15 @@ const SiteHeader = ({ user, setUser, showLogin, setShowLogin }) => {
     navigate("/");
   };
 
+  const handleMyAddonsClick = () => {
+  navigate("/myAddons");
+  };
+
   const handleCreateAddonClick = () => {
   navigate("/createAddon");
-};
+  };
+
+
 
   const handleLogout = () => {
     setUser(null);
@@ -26,7 +32,9 @@ const SiteHeader = ({ user, setUser, showLogin, setShowLogin }) => {
       </button>
 
       <nav className="nav-bar">
-        <button className="nav-bar-button">My Addons</button>
+        <button className="button nav-bar-button" onClick={handleMyAddonsClick}>
+          My Addons
+        </button>
         <button className="button nav-bar-button" onClick={handleCreateAddonClick}>
           Create Addon
         </button>
