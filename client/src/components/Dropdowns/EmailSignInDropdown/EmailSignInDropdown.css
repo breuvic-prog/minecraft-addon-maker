@@ -1,10 +1,8 @@
 .dropdown-menu {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: calc(100% + 0.5rem);
-  right: 0;
-  z-index: 1000;
+  position: relative;
+  z-index: 2100;
 
   background-color: var(--gray);
   width: min(420px, 90vw);

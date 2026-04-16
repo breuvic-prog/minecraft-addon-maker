@@ -18,7 +18,6 @@ const SiteHeader = ({ user, setUser, showLogin, setShowLogin }) => {
   };
 
 
-
   const handleLogout = () => {
     setUser(null);
     setShowLogin(false);
@@ -56,11 +55,15 @@ const SiteHeader = ({ user, setUser, showLogin, setShowLogin }) => {
             </button>
 
             {showLogin && (
-              <EmailSignInDropdown
-                user={user}
-                setUser={setUser}
-                onClose={() => setShowLogin(false)}
-              />
+              <div className="modal-backdrop" onClick={() => setShowLogin(false)}>
+                <div className="modal-positioner" onClick={(event) => event.stopPropagation()}>
+                  <EmailSignInDropdown
+                  user={user}
+                  setUser={setUser}
+                  onClose={() => setShowLogin(false)}
+                  />
+                </div>
+              </div>
             )}
           </>
         )}

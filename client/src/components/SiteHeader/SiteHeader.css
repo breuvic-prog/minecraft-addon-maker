@@ -62,3 +62,22 @@
 .signup-login-button:hover {
   background-color: var(--green-dark);
 }
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background-color: rgba(0, 0, 0, 0.45);
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+
+  pointer-events: auto;
+}
+
+.modal-positioner {
+  margin-top: 70px;   
+  margin-right: 0.5rem;
+  position: relative;
+}
