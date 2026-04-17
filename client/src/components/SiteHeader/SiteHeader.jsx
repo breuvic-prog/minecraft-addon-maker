@@ -65,7 +65,7 @@ const SiteHeader = ({
 
       <div className="signup-login-frame">
         {user ? (
-          <button className="button signup-login-button" onClick={handleLogout}>
+          <button className="button sign-up-button" onClick={handleLogout}>
             Logout
           </button>
         ) : (
@@ -78,7 +78,7 @@ const SiteHeader = ({
             </button>
 
             <button
-              className="button sign-in-button"
+              className="button sign-up-button"
               onClick={handleOpenSignUp}
             >
               Sign Up

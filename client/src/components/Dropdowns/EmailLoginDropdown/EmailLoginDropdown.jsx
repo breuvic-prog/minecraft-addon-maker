@@ -1,13 +1,17 @@
 import { useState } from "react";
 import "./EmailLoginDropdown.css";
+import EmailSignUpDropdown from "../EmailSignUpDropdown/EmailSignUpDropdown";
+import EmailForgotPasswordDropdown from "../EmailForgotPasswordDropdown/EmailForgotPasswordDropdown";
 
 const API_BASE_URL = "http://localhost:5000";
 
-const EmailLoginDropdown = ({ user, setUser, onClose, onOpenSignUp }) => {
+const EmailLoginDropdown = ({ user, setUser, onClose }) => {
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
+  const [showSignUp, setShowSignUp] = useState(false);
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (event) => {
@@ -66,6 +70,24 @@ const EmailLoginDropdown = ({ user, setUser, onClose, onOpenSignUp }) => {
     );
   }
 
+  if (showForgotPassword) {
+    return (
+      <EmailForgotPasswordDropdown
+        onBack={() => setShowForgotPassword(false)}
+        onClose={onClose}
+      />
+    );
+  }
+
+  if (showSignUp) {
+    return (
+      <EmailSignUpDropdown
+        setUser={setUser}
+        onBack={() => setShowSignUp(false)}
+      />
+    );
+  }
+
   return (
     <form className="dropdown-menu" onSubmit={handleSubmit}>
       <button
@@ -106,14 +128,20 @@ const EmailLoginDropdown = ({ user, setUser, onClose, onOpenSignUp }) => {
         {isSubmitting ? "Signing In..." : "Submit"}
       </button>
 
-      <a href="#">Forgot your password?</a>
+      <button
+        type="button"
+        className="text-button"
+        onClick={() => setShowForgotPassword(true)}
+      >
+        Forgot your password?
+      </button>
 
       <div className="signup-row">
-        <p>Need an account?</p>
+        <p>New?</p>
         <button
           type="button"
           className="text-button"
-          onClick={onOpenSignUp}
+          onClick={() => setShowSignUp(true)}
         >
           Sign Up
         </button>

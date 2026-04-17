@@ -137,6 +137,31 @@ app.post('/login', async (req, res) => {
   }
 });
 
+app.post('/forgot-password', async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    if (!email) {
+      return res.status(400).json({ error: 'Email is required.' });
+    }
+
+    const user = await prisma.user.findUnique({
+      where: { email },
+    });
+
+    if (user) {
+      console.log(`Password reset requested for: ${email}`);
+    }
+
+    return res.json({
+      message: 'If an account with that email exists, password reset instructions have been sent.',
+    });
+  } catch (error) {
+    console.error('Forgot password request failed:', error);
+    return res.status(500).json({ error: 'Failed to process forgot password request.' });
+  }
+});
+
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
