@@ -3,7 +3,7 @@ import "./EmailSignUpDropdown.css";
 
 const API_BASE_URL = "http://localhost:5000";
 
-const SignUpDropdown = ({ setUser, onBack }) => {
+const EmailSignUpDropdown = ({ setUser, onClose, onOpenSignIn }) => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -49,6 +49,7 @@ const SignUpDropdown = ({ setUser, onBack }) => {
       setUsername("");
       setPassword("");
       setConfirmPassword("");
+      onClose();
     } catch (submitError) {
       setError(submitError.message);
     } finally {
@@ -58,9 +59,15 @@ const SignUpDropdown = ({ setUser, onBack }) => {
 
   return (
     <form className="dropdown-menu" onSubmit={handleSubmit}>
-      <button type="button" className="close-button" onClick={onBack} aria-label="Back to sign in">
-        ←
+      <button
+        type="button"
+        className="close-button"
+        onClick={onClose}
+        aria-label="Close sign up form"
+      >
+        X
       </button>
+
       <h2>Sign Up</h2>
 
       <label htmlFor="signup-email">Email</label>
@@ -110,8 +117,19 @@ const SignUpDropdown = ({ setUser, onBack }) => {
       <button className="submit-button" type="submit" disabled={isSubmitting}>
         {isSubmitting ? "Creating Account..." : "Create Account"}
       </button>
+
+      <div className="signup-row">
+        <p>Already have an account?</p>
+        <button
+          type="button"
+          className="text-button"
+          onClick={onOpenSignIn}
+        >
+          Sign In
+        </button>
+      </div>
     </form>
   );
 };
 
-export default SignUpDropdown;
+export default EmailSignUpDropdown;

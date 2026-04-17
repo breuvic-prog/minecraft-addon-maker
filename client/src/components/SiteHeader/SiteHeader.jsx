@@ -1,8 +1,16 @@
 import "./SiteHeader.css";
-import EmailSignInDropdown from "../Dropdowns/EmailSignInDropdown/EmailSignInDropdown";
+import EmailLoginDropdown from "../Dropdowns/EmailLoginDropdown/EmailLoginDropdown";
+import EmailSignUpDropdown from "../Dropdowns/EmailSignUpDropdown/EmailSignUpDropdown";
 import { useNavigate } from "react-router-dom";
 
-const SiteHeader = ({ user, setUser, showLogin, setShowLogin }) => {
+const SiteHeader = ({
+  user,
+  setUser,
+  showLogin,
+  setShowLogin,
+  showSignUp,
+  setShowSignUp,
+}) => {
   const navigate = useNavigate();
 
   const handleLogoClick = () => {
@@ -10,17 +18,32 @@ const SiteHeader = ({ user, setUser, showLogin, setShowLogin }) => {
   };
 
   const handleMyAddonsClick = () => {
-  navigate("/myAddons");
+    navigate("/myAddons");
   };
 
   const handleCreateAddonClick = () => {
-  navigate("/createAddon");
+    navigate("/createAddon");
   };
-
 
   const handleLogout = () => {
     setUser(null);
     setShowLogin(false);
+    setShowSignUp(false);
+  };
+
+  const handleOpenLogin = () => {
+    setShowSignUp(false);
+    setShowLogin((prev) => !prev);
+  };
+
+  const handleOpenSignUp = () => {
+    setShowLogin(false);
+    setShowSignUp((prev) => !prev);
+  };
+
+  const handleCloseAllAuth = () => {
+    setShowLogin(false);
+    setShowSignUp(false);
   };
 
   return (
@@ -48,20 +71,47 @@ const SiteHeader = ({ user, setUser, showLogin, setShowLogin }) => {
         ) : (
           <>
             <button
-              className="button signup-login-button"
-              onClick={() => setShowLogin((prev) => !prev)}
+              className="button login-button"
+              onClick={handleOpenLogin}
             >
-              Sign In
+              Login
             </button>
 
-            {showLogin && (
-              <div className="modal-backdrop" onClick={() => setShowLogin(false)}>
-                <div className="modal-positioner" onClick={(event) => event.stopPropagation()}>
-                  <EmailSignInDropdown
-                  user={user}
-                  setUser={setUser}
-                  onClose={() => setShowLogin(false)}
-                  />
+            <button
+              className="button sign-in-button"
+              onClick={handleOpenSignUp}
+            >
+              Sign Up
+            </button>
+
+            {(showLogin || showSignUp) && (
+              <div className="modal-backdrop" onClick={handleCloseAllAuth}>
+                <div
+                  className="modal-positioner"
+                  onClick={(event) => event.stopPropagation()}
+                >
+                  {showLogin && (
+                    <EmailLoginDropdown
+                      user={user}
+                      setUser={setUser}
+                      onClose={handleCloseAllAuth}
+                      onOpenSignUp={() => {
+                        setShowLogin(false);
+                        setShowSignUp(true);
+                      }}
+                    />
+                  )}
+
+                  {showSignUp && (
+                    <EmailSignUpDropdown
+                      setUser={setUser}
+                      onClose={handleCloseAllAuth}
+                      onOpenSignIn={() => {
+                        setShowSignUp(false);
+                        setShowLogin(true);
+                      }}
+                    />
+                  )}
                 </div>
               </div>
             )}

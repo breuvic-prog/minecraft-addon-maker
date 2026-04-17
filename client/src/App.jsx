@@ -7,6 +7,7 @@ import CreateAddon from "./components/Pages/CreateAddon/CreateAddon";
 function App() {
   const [user, setUser] = useState(null);
   const [showLogin, setShowLogin] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false);
 
   return (
     <Routes>
@@ -18,6 +19,8 @@ function App() {
             setUser={setUser}
             showLogin={showLogin}
             setShowLogin={setShowLogin}
+            showSignUp={showSignUp}
+            setShowSignUp={setShowSignUp}
           />
         }
       />
@@ -29,10 +32,11 @@ function App() {
             setUser={setUser}
             showLogin={showLogin}
             setShowLogin={setShowLogin}
+            showSignUp={showSignUp}
+            setShowSignUp={setShowSignUp}
           />
         }
       />
-
       <Route
         path="/createAddon"
         element={
@@ -41,6 +45,8 @@ function App() {
             setUser={setUser}
             showLogin={showLogin}
             setShowLogin={setShowLogin}
+            showSignUp={showSignUp}
+            setShowSignUp={setShowSignUp}
           />
         }
       />

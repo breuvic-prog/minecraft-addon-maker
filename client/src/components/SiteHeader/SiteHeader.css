@@ -5,7 +5,6 @@
   align-items: center;
   position: relative;
   padding: 0.2rem 0.5rem;
-
   border-bottom: 2px solid var(--red);
   box-shadow: 0 0 10px var(--red);
 }
@@ -51,12 +50,22 @@
   position: relative;
 }
 
-.signup-login-button {
+.login-button {
+  height: 50%;
+  background-color: var(--blue);
+  font-size: 1rem;
+  margin: 5px;
+  border-style: hidden;
+  padding: 0 1rem;
+}
+
+.sign-in-button {
   height: 50%;
   background-color: var(--green);
   font-size: 1rem;
   margin: 5px;
   border-style: hidden;
+  padding: 0 1rem;
 }
 
 .signup-login-button:hover {
@@ -68,16 +77,14 @@
   inset: 0;
   z-index: 2000;
   background-color: rgba(0, 0, 0, 0.45);
-
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
-
   pointer-events: auto;
 }
 
 .modal-positioner {
-  margin-top: 70px;   
+  margin-top: 70px;
   margin-right: 0.5rem;
   position: relative;
 }

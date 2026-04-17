@@ -1,15 +1,13 @@
 import { useState } from "react";
-import "./EmailSignInDropdown.css";
-import EmailSignUpDropdown from "../EmailSignUpDropdown/EmailSignUpDropdown";
+import "./EmailLoginDropdown.css";
 
 const API_BASE_URL = "http://localhost:5000";
 
-const EmailSignInDropdown = ({ user, setUser, onClose }) => {
+const EmailLoginDropdown = ({ user, setUser, onClose, onOpenSignUp }) => {
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
-  const [showSignUp, setShowSignUp] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (event) => {
@@ -68,15 +66,6 @@ const EmailSignInDropdown = ({ user, setUser, onClose }) => {
     );
   }
 
-  if (showSignUp) {
-    return (
-      <EmailSignUpDropdown
-        setUser={setUser}
-        onBack={() => setShowSignUp(false)}
-      />
-    );
-  }
-
   return (
     <form className="dropdown-menu" onSubmit={handleSubmit}>
       <button
@@ -120,11 +109,11 @@ const EmailSignInDropdown = ({ user, setUser, onClose }) => {
       <a href="#">Forgot your password?</a>
 
       <div className="signup-row">
-        <p>New?</p>
+        <p>Need an account?</p>
         <button
           type="button"
           className="text-button"
-          onClick={() => setShowSignUp(true)}
+          onClick={onOpenSignUp}
         >
           Sign Up
         </button>
@@ -133,4 +122,4 @@ const EmailSignInDropdown = ({ user, setUser, onClose }) => {
   );
 };
 
-export default EmailSignInDropdown;
+export default EmailLoginDropdown;

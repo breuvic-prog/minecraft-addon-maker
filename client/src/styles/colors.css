@@ -1,20 +1,21 @@
 :root {
-  /* Red */
+  /* Reds */
   --red: #ff3b3b;
   --red-dark: #d92f2f;
   --red-light: #ff6b6b;
 
-  /* Green */
+  /* Greens */
   --green: #22C55E;
   --green-dark: #15803D;
 
-  /* White */
+  /* Whites */
   --white: #FAF9F6;
 
-  /*Gray*/
+  /*Grays*/
   --gray:#D3D3D3;
 
-  /* Blue */
+  /* Blues */
+  --blue:#2D7DFF
 
 
 

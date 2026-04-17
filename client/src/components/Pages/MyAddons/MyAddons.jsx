@@ -1,7 +1,14 @@
 import "./MyAddons.css";
 import SiteHeader from "../../SiteHeader/SiteHeader";
 
-const MyAddons = ({ user, setUser, showLogin, setShowLogin }) => {
+const MyAddons = ({
+  user,
+  setUser,
+  showLogin,
+  setShowLogin,
+  showSignUp,
+  setShowSignUp,
+}) => {
   return (
     <>
       <SiteHeader
@@ -9,18 +16,18 @@ const MyAddons = ({ user, setUser, showLogin, setShowLogin }) => {
         setUser={setUser}
         showLogin={showLogin}
         setShowLogin={setShowLogin}
+        showSignUp={showSignUp}
+        setShowSignUp={setShowSignUp}
       />
 
       <div>
         {user ? (
           <>
-            {/* When the user is signed in */}
             <h1>My Addons</h1>
             <p>Welcome {user.username || user.email}</p>
           </>
         ) : (
           <>
-            {/* When the user is NOT signed in */}
             <h1>Login to view addons</h1>
           </>
         )}
