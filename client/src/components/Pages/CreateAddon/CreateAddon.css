@@ -1,0 +1,34 @@
+.create-addon-page {
+  padding: 24px;
+}
+
+.create-addon-form {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.create-addon-form input,
+.create-addon-form textarea,
+.create-addon-form button {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.create-addon-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.image-preview-wrapper {
+  margin-top: 8px;
+}
+
+.image-preview {
+  max-width: 250px;
+  max-height: 250px;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}

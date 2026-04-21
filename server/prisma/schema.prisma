@@ -12,4 +12,17 @@ model User {
   username     String?  @unique
   passwordHash String
   createdAt    DateTime @default(now())
+  addons       Addon[]
+}
+
+model Addon {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  image       String?  @db.Text
+  deleted     Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
