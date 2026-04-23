@@ -1,0 +1,41 @@
+.search-area{
+    display: flex;
+    background-color: var(--gray);
+    height: 50px;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.search-bar-area{
+    display: flex;
+    width:70%;
+    background-color: var(--white);
+}
+
+.search-bar-input{
+    flex: 1;
+    border: none;
+    outline: none;
+}
+
+.page-view-area{
+    display: flex;
+    background-color: aliceblue;
+}
+
+
+.icon{
+    background-color: transparent;
+    height: 100%;
+    aspect-ratio: 1/1;
+}
+
+.search-button{
+    background-color: aliceblue;
+    border: none;
+
+}
+
+.search-button:hover{
+    background-color: gray;
+}

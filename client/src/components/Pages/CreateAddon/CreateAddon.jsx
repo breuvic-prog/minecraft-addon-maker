@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./CreateAddon.css";
-import SiteHeader from "../../SiteHeader/SiteHeader";
+import SiteHeader from "../../General/SiteHeader/SiteHeader";
 
 const API_BASE_URL = "http://localhost:5000";
 

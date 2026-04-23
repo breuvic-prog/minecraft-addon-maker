@@ -1,6 +1,6 @@
 import "./SiteHeader.css";
-import EmailLoginDropdown from "../Dropdowns/EmailLoginDropdown/EmailLoginDropdown";
-import EmailSignUpDropdown from "../Dropdowns/EmailSignUpDropdown/EmailSignUpDropdown";
+import EmailLoginDropdown from "../../Dropdowns/EmailLoginDropdown/EmailLoginDropdown";
+import EmailSignUpDropdown from "../../Dropdowns/EmailSignUpDropdown/EmailSignUpDropdown";
 import { useNavigate } from "react-router-dom";
 
 const SiteHeader = ({
